@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zsd_pp_cico_main_adm" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_PP_CICO_SCRAPTYPE_VHType" sap:label="Scrap Type ValueHelp" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ScrapType"/>
+                </Key>
+                <Property Name="ScrapType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="ScrapTypeText" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="ScrapTypeText" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="ZC_PP_RAP_CICO_MAIN_ADMType" sap:label="Projection View for CICO Main Admin" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Aufnr"/>
+                    <PropertyRef Name="Aufpl"/>
+                    <PropertyRef Name="Zresource"/>
+                    <PropertyRef Name="Userid"/>
+                    <PropertyRef Name="Process"/>
+                    <PropertyRef Name="Sys_Chkin_Date"/>
+                    <PropertyRef Name="Sys_Chkin_Time"/>
+                </Key>
+                <Property Name="Aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Order" sap:quickinfo="Order Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Aufpl" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Operation" sap:quickinfo="Operation/Activity Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Zresource" Type="Edm.String" Nullable="false" MaxLength="100" sap:display-format="UpperCase" sap:label="Equipment" sap:quickinfo="Resource" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="User" sap:quickinfo="User Name in User Master Record" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Phase" sap:quickinfo="Process" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Sys_Chkin_Date" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="System Checkin Date" sap:quickinfo="System Check-In Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Sys_Chkin_Time" Type="Edm.Time" Nullable="false" Precision="0" sap:label="System CheckIn Time" sap:quickinfo="System Check-In Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Chkin_Date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:filter-restriction="single-value" sap:required-in-filter="false" sap:label="CheckIn Date" sap:quickinfo="Check-In Date"/>
+                <Property Name="Chkin_Time" Type="Edm.Time" Precision="0" sap:label="CheckIn Time" sap:quickinfo="Check-In Time"/>
+                <Property Name="Chkout_Date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:filter-restriction="single-value" sap:required-in-filter="false" sap:label="Checkout Date" sap:quickinfo="Check-Out Date"/>
+                <Property Name="Chkout_Time" Type="Edm.Time" Precision="0" sap:label="Checkout Time" sap:quickinfo="Check-Out Time"/>
+                <Property Name="Sys_Chkout_Date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="System Checkout Date" sap:quickinfo="System Check-Out Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Sys_Chkout_Time" Type="Edm.Time" Precision="0" sap:label="System Checkout Time" sap:quickinfo="System Check-Out Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Status" sap:quickinfo="Labor Confirmation Status" sap:creatable="false" sap:updatable="false" sap:value-list="fixed-values"/>
+                <Property Name="Yield_Qty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="Yield Qty" sap:quickinfo="Planned Total Order Quantity"/>
+                <Property Name="Scrap_Qty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="UOM" sap:label="Scrap Qty" sap:quickinfo="Planned Scrap Quantity"/>
+                <Property Name="Scrap_Type" Type="Edm.String" MaxLength="10" sap:label="Scrap Type" sap:value-list="fixed-values"/>
+                <Property Name="Execution" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Execution"/>
+                <Property Name="Setup_Time" Type="Edm.Time" Precision="0" sap:label="Setup Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Setup_Labor" Type="Edm.Time" Precision="0" sap:label="Setup Labor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Run_Time" Type="Edm.Time" Precision="0" sap:label="Run Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Run_Labor" Type="Edm.Time" Precision="0" sap:label="Run Labor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Teardown_Time" Type="Edm.Time" Precision="0" sap:label="Teardown Time" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Teardown_Labor" Type="Edm.Time" Precision="0" sap:label="Teardown Labor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Target_Efficiency" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Labor Allocation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Labor_Divisor" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Labor Divisor" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Tx_Type" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tx Type"/>
+                <Property Name="Chkin_Error" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-In Error"/>
+                <Property Name="Chkout_Error" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-Out Error"/>
+                <Property Name="Pgi_Error" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Goods Issue Error"/>
+                <Property Name="Chkin_Time_Mod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-In Time Mod." sap:quickinfo="Check-In Time Modified"/>
+                <Property Name="Chkout_Time_Mod" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Check-Out Time Mod." sap:quickinfo="Check-Out Time Modified"/>
+                <Property Name="Conf_No" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Confirmation" sap:quickinfo="Completion confirmation number for the operation"/>
+                <Property Name="Conf_Cnt" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Counter" sap:quickinfo="Confirmation counter"/>
+                <Property Name="Mat_Doc" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Material Document" sap:quickinfo="Number of Material Document"/>
+                <Property Name="Doc_Year" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Material Doc. Year" sap:quickinfo="Material Document Year"/>
+                <Property Name="Type" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Message type" sap:quickinfo="Message type: S Success, E Error, W Warning, I Info, A Abort"/>
+                <Property Name="Message" Type="Edm.String" MaxLength="220" sap:display-format="UpperCase" sap:label="Message" sap:quickinfo="Message Text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Chkout_Flag" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Single-Character Flag" sap:heading=""/>
+                <Property Name="UOM" Type="Edm.String" MaxLength="3" sap:label="Operation Unit" sap:quickinfo="Operation Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="ZC_RAP_STATUS_VHType" sap:label="Status Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="StatusText" sap:label="Lower Value" sap:quickinfo="Values for Domains: Single Value/Lower Limit"/>
+                <Property Name="StatusText" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values"/>
+            </EntityType>
+            <EntityType Name="ZC_RAP_USERID_VHType" sap:label="User Id Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Userid"/>
+                </Key>
+                <Property Name="Userid" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="User" sap:quickinfo="User Name in User Master Record"/>
+            </EntityType>
+            <EntityContainer Name="cds_zsd_pp_cico_main_adm_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_PP_CICO_SCRAPTYPE_VH" EntityType="cds_zsd_pp_cico_main_adm.ZC_PP_CICO_SCRAPTYPE_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_PP_RAP_CICO_MAIN_ADM" EntityType="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType" sap:creatable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="ZC_RAP_STATUS_VH" EntityType="cds_zsd_pp_cico_main_adm.ZC_RAP_STATUS_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_RAP_USERID_VH" EntityType="cds_zsd_pp_cico_main_adm.ZC_RAP_USERID_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <FunctionImport Name="reprocessIncompleteOrders" ReturnType="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType" EntitySet="ZC_PP_RAP_CICO_MAIN_ADM" m:HttpMethod="POST" sap:action-for="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType">
+                    <Parameter Name="Aufnr" Type="Edm.String" Mode="In" MaxLength="12"/>
+                    <Parameter Name="Aufpl" Type="Edm.String" Mode="In" MaxLength="4"/>
+                    <Parameter Name="Zresource" Type="Edm.String" Mode="In" MaxLength="100"/>
+                    <Parameter Name="Userid" Type="Edm.String" Mode="In" MaxLength="12"/>
+                    <Parameter Name="Process" Type="Edm.String" Mode="In" MaxLength="10"/>
+                    <Parameter Name="Sys_Chkin_Date" Type="Edm.DateTime" Mode="In" Precision="0"/>
+                    <Parameter Name="Sys_Chkin_Time" Type="Edm.Time" Mode="In" Precision="0"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType/Userid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="User"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_RAP_USERID_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Userid"/>
+                                    <PropertyValue Property="ValueListProperty" String="Userid"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType/Status" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Status"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_RAP_STATUS_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Status"/>
+                                    <PropertyValue Property="ValueListProperty" String="Status"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StatusText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType/Scrap_Type" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Scrap Type"/>
+                        <PropertyValue Property="CollectionPath" String="ZC_PP_CICO_SCRAPTYPE_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Scrap_Type"/>
+                                    <PropertyValue Property="ValueListProperty" String="ScrapType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ScrapTypeText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.cds_zsd_pp_cico_main_adm_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.cds_zsd_pp_cico_main_adm_Entities/ZC_PP_RAP_CICO_MAIN_ADM" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Aufnr"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Aufpl"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Userid"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Chkin_Date"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Chkout_Date"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Status"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zsd_pp_cico_main_adm.ZC_PP_RAP_CICO_MAIN_ADMType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Aufnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://vhacud01ci.us4.sap.acumed.net:44300/sap/opu/odata/sap/ZPP_CICO_MAIN_ADM/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhacud01ci.us4.sap.acumed.net:44300/sap/opu/odata/sap/ZPP_CICO_MAIN_ADM/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

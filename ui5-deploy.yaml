@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: com.nttdata.acumed.rapcicoadmin
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: Acumed_DEV_200
+          url: http://vhacud01ci.us4.sap.acumed.net:44300
+          scp: true
+        app:
+          name: ZPP_RAP_CICO
+          description: Labor CICO Administration
+          package: ZPP
+          transport: D01K903256
+        exclude:
+          - /test/
